@@ -21,7 +21,7 @@
         </div>
         </form>
         
-        <a class="mt-4 px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-700 hover:shadow-md" href="/update">Update</a>        
+        <a id="updateLink" class="hidden mt-4 px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-700 hover:shadow-md" href="/update">Update</a>        
     </div>
 
 
@@ -34,8 +34,7 @@
         acceptedFiles: ".csv",
         init: function () {
           this.on("success", function (file, resp) {
-            console.log(file);
-            console.log(resp);
+            document.getElementById('updateLink').classList.remove('hidden')
           });
         },
       };
