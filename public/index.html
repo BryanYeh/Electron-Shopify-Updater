@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/tailwind.css" />
+    <link rel="stylesheet" href="./css/dropzone.min.css" />
+  </head>
+  <body>
+    <div class="p-4 bg-gray-300 flex flex-col min-h-screen text-center">
+        <form
+        id="upload-widget"
+        method="post"
+        action="/file-upload"
+        class="dropzone"
+        >
+        <div class="fallback">
+            <input name="file" type="file" />
+        </div>
+        </form>
+        
+        <a class="mt-4 px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-700 hover:shadow-md" href="/update">Update</a>        
+    </div>
+
+
+    <script src="./js/dropzone.min.js"></script>
+    <script type="text/javascript">
+      Dropzone.options.uploadWidget = {
+        paramName: "file",
+        maxFiles: 1,
+        dictDefaultMessage: "Click to select a CSV file",
+        acceptedFiles: ".csv",
+        init: function () {
+          this.on("success", function (file, resp) {
+            console.log(file);
+            console.log(resp);
+          });
+        },
+      };
+    </script>
+  </body>
+</html>
